@@ -1,0 +1,6 @@
+.chart_history{
+    display: flex;
+    /* gap: 200px; */
+    justify-content: space-between;
+    padding: 20px;
+}

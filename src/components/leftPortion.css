@@ -1,17 +1,16 @@
-/* leftPortion.css */
 .left_portion {
-  width: 250px; /* Width when expanded */
+  width: 250px; 
   background-color: #37146b;
   color: white;
   font-size: 14px;
   padding: 20px;
-  transition: width 0.5s ease-in-out; /* Transition for smooth width change */
+  transition: width 0.5s ease-in-out; 
   display: flex;
   flex-direction: column;
 }
 
 .left_portion.collapsed {
-  width: 50px; /* Width when collapsed */
+  width: 50px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -39,10 +38,10 @@
   font-size: 18px;
   cursor: pointer;
   margin-bottom: 20px;
-  align-self: flex-start; /* Position button on the right when expanded */
+  align-self: flex-start; 
   padding-left: 16px;
 }
 .tab.active {
-  background-color: #f0f0f0; /* Light gray background for active tab */
-  border-left: 4px solid blue; /* Blue left border for active tab */
+  background-color: #f0f0f0; 
+  border-left: 4px solid blue; 
 }

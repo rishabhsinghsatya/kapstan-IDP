@@ -11,16 +11,13 @@ import Admin from "../assets/icons/User.svg";
 import Docs from "../assets/icons/Docs.svg";
 
 import Arrow from "../assets/icons/Left.svg";
-// import RightArrow from "../assets/icons/Right.svg";
-// import Logo from "../assets/icons/Kapstan.svg";
-// import HomeIcon from "../assets/icons/home.svg"; // Assuming you have a home icon
-// import AboutIcon from "../assets/icons/about.svg"; // Assuming you have an about icon
+
 
 const LeftPortion = () => {
-  const [isExpanded, setIsExpanded] = useState(true); // State to track if the navbar is expanded
+  const [isExpanded, setIsExpanded] = useState(true); 
 
   const toggleNavbar = () => {
-    setIsExpanded(!isExpanded); // Toggle the state between true and false
+    setIsExpanded(!isExpanded); 
   };
 
   return (
@@ -78,4 +75,3 @@ const LeftPortion = () => {
 
 export default LeftPortion;
 
-//icons downloD

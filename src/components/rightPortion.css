@@ -1,6 +1,7 @@
 .right_portion {
   width: 80%;
-  background-color: #fff;
+  height: 100vh;
+  background-color: #f8f8f8;
   color: #000;
   padding: 20px;
   transition: flex-grow 0.3s ease-in-out;

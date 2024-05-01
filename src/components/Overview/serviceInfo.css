@@ -1,0 +1,36 @@
+.service_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 90%;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  height: 25vh;
+  margin: 20px;
+  border: 1px solid #ebebeb;
+}
+.upper {
+  display: flex;
+  flex-direction: column;
+}
+.deploy_button {
+  background-color: #6e27d5;
+  border: none;
+  height: 25px;
+  align-items: center;
+  border-radius: 4px;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 2px;
+  cursor: pointer;
+}
