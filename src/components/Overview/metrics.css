@@ -1,12 +1,12 @@
 .tab {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-  width: 100%;
+  /* justify-content: space-around; */
+  /* margin-bottom: 20px; */
+  /* width: 90%; */
 }
 
 .tab button {
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -19,8 +19,11 @@
 }
 
 .tab-content {
-  padding: 20px;
+  /* padding: 20px; */
   border: 1px solid #ccc;
-  height: 250px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  /* height: 250px; */
   /* width: 80%; */
 }

@@ -6,13 +6,13 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  width: 90%;
-  padding: 10px;
+  /* gap: 25px; */
+  /* width: 90%; */
+  /* padding: 10px; */
   background-color: white;
   border-radius: 5px;
-  height: 25vh;
-  margin: 20px;
+  /* height: 20vh; */
+  /* margin: 20px; */
   border: 1px solid #ebebeb;
 }
 .upper {
@@ -22,11 +22,12 @@
 .deploy_button {
   background-color: #6e27d5;
   border: none;
-  height: 25px;
+  width: 96px;
+  height: 36px;
   align-items: center;
   border-radius: 4px;
   color: white;
-  padding: 5px 15px;
+  padding: 8px, 24px, 8px, 24px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

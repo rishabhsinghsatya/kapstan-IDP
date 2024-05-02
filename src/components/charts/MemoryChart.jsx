@@ -79,7 +79,7 @@ const MemoryUtilizationChart = () => {
       });
   }, []);
 
-  return <div className='memory_chart' style={{ height: "400px" }}>
+  return <div className='memory_chart' >
     <Line data={chartData} options={chartOptions} />
   </div>;
 };

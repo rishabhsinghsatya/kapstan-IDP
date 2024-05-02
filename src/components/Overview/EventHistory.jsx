@@ -5,6 +5,7 @@ const EventHistory = () => {
   const [applications, setApplications] = useState([]);
   const [selectedAppId, setSelectedAppId] = useState("");
   const [history, setHistory] = useState([]);
+  const [showAll, setShowAll] = useState(false); // State to toggle view more or less
 
   useEffect(() => {
     fetch("https://retoolapi.dev/71NNjB/applications")
@@ -26,9 +27,11 @@ const EventHistory = () => {
         )
         .catch((error) => console.error("Error loading event history:", error));
     } else {
-      setHistory([]); 
+      setHistory([]);
     }
   }, [selectedAppId]);
+
+  const displayedHistory = showAll ? history : history.slice(0, 4);
 
   return (
     <div className="event-history-container">
@@ -48,28 +51,33 @@ const EventHistory = () => {
         </select>
       </div>
       {history.length > 0 ? (
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Event</th>
-              <th>Status</th>
-              <th>Version</th>
-              <th>Timestamp</th>
-            </tr>
-          </thead>
-          <tbody>
-            {history.map((event) => (
-              <tr key={event.id}>
-                <td>{event.id}</td>
-                <td>{event.event}</td>
-                <td>{event.status}</td>
-                <td>{event.version}</td>
-                <td>{new Date(event.timestamp * 1000).toLocaleString()}</td>
+        <>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Event</th>
+                <th>Status</th>
+                <th>Version</th>
+                <th>Timestamp</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {displayedHistory.map((event) => (
+                <tr key={event.id}>
+                  <td>{event.id}</td>
+                  <td>{event.event}</td>
+                  <td>{event.status}</td>
+                  <td>{event.version}</td>
+                  <td>{new Date(event.timestamp * 1000).toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <button onClick={() => setShowAll(!showAll)}>
+            {showAll ? "Show Less" : "View More"}
+          </button>
+        </>
       ) : (
         <p>No events found or select an application.</p>
       )}

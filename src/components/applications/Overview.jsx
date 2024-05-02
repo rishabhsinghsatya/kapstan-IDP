@@ -6,13 +6,13 @@ import "./overview.css";
 
 const Overview = () => {
   return (
-    <>
+    <div className="overview">
       <ServiceInfo />
       <div className="chart_history">
         <Metrics />
         <EventHistory />
       </div>
-    </>
+    </div>
   );
 };
 

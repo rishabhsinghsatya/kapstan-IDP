@@ -1,10 +1,13 @@
+/* src/eventHistory.css */
 .event-history-container {
   margin: 20px;
-  /* width: 40%; */
-  font-family: Arial, sans-serif;
-  background-color: white;
-  border-radius: 5px;
-  border: 1px solid #ebebeb;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  /* width: 40%;
+    height: 280px; */
 }
 
 .event-history-container label {
@@ -15,37 +18,34 @@
 .event-history-container select {
   padding: 8px;
   margin-right: 20px;
-  border-radius: 4px;
   border: 1px solid #ccc;
+  border-radius: 4px;
   background-color: white;
+  cursor: pointer; /* Indicates the dropdown can be interacted with */
 }
 
 table {
   width: 100%;
-  border-collapse: collapse;
   margin-top: 20px;
-}
-
-table,
-th,
-td {
-  border: 1px solid #ddd;
+  border-collapse: collapse; /* Ensures borders between rows are merged */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Slight shadow under the table */
 }
 
 th,
 td {
+  padding: 12px;
+  border: 1px solid #ddd; /* Light grey border for readability */
   text-align: left;
-  padding: 8px;
 }
 
 th {
-  background-color: #f4f4f4;
+  background-color: #f4f4f4; /* Slightly grey background in header */
 }
 
-tr:nth-child(even) {
-  background-color: #f9f9f9;
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Zebra striping for rows */
 }
 
-tr:hover {
-  background-color: #f1f1f1;
+tbody tr:hover {
+  background-color: #f1f1f1; /* Highlight on hover for interactivity */
 }
