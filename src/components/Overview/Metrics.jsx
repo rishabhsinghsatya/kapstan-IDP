@@ -10,31 +10,29 @@ const Metrics = () => {
     setActiveTab(tab);
   };
 
-  // Inside your Metrics component in Metrics.js
-return (
+  return (
     <div className="tab-content">
-      <div className="tab">
-        <h>System metrics</h>
-        <button
-          className={activeTab === "CPU" ? "active" : ""}
-          onClick={() => handleTabClick("CPU")}
-        >
-          CPU
-        </button>
-        <button
-          className={activeTab === "Memory" ? "active" : ""}
-          onClick={() => handleTabClick("Memory")}
-        >
-          Memory
-        </button>
-      </div>
       <div className="chart-container">
+        <div className="tab">
+          {/* <h>System metrics</h> */}
+          <button
+            className={activeTab === "CPU" ? "active" : ""}
+            onClick={() => handleTabClick("CPU")}
+          >
+            CPU
+          </button>
+          <button
+            className={activeTab === "Memory" ? "active" : ""}
+            onClick={() => handleTabClick("Memory")}
+          >
+            Memory
+          </button>
+        </div>
         {activeTab === "CPU" && <CpuUtilizationChart />}
-        {activeTab === "Memory" && <MemoryUtilizationChart />}
       </div>
+      {activeTab === "Memory" && <MemoryUtilizationChart />}
     </div>
   );
-  
 };
 
 export default Metrics;

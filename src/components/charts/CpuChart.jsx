@@ -10,7 +10,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import "./chart.css";
 
 ChartJS.register(
   CategoryScale,
@@ -36,39 +35,39 @@ const CpuUtilizationChart = () => {
     })),
   };
 
-    const options = {
-      scales: {
-        x: {
-          title: {
-            display: true,
-            text: 'Time Intervals (minutes)'
-          }
-        },
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            text: 'Days'
-          }
-        }
-      },
-      plugins: {
-        legend: {
+  const options = {
+    scales: {
+      x: {
+        title: {
           display: true,
-          position: 'top',
+          text: "Time Intervals (minutes)",
         },
-        tooltip: {
-          enabled: true,
-          mode: 'index',
-          intersect: false,
-        }
       },
-      responsive: true,
-      maintainAspectRatio: false
-    };
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: "Days",
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: true,
+        position: "top",
+      },
+      tooltip: {
+        enabled: true,
+        mode: "index",
+        intersect: false,
+      },
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+  };
 
   return (
-    <div className="cpu-utilization-chart-container">
+    <div>
       <Line data={data} />
     </div>
   );

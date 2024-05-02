@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  /* width: 156px; */
+  height: 300px;
+  padding: 0px 20px 0px 20px;
+  margin: 20px;
+  /* gap: 12px; */
+  border-radius: 8px;
+  /* border: 1px solid #595959; */
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.both_icon {
+  display: flex;
+  gap: 10px;
+}
+.container h {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #595959;
+}
+
+.header p {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #595959;
+}

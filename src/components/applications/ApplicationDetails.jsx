@@ -12,7 +12,11 @@ const ApplicationDetails = ({ app }) => {
     <div>
       <div
         className="app_name"
-        style={{ display: "flex", justifyContent: "space-between" }}
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "5px 20px 0px 20px",
+        }}
       >
         <h
           style={{
@@ -53,13 +57,7 @@ const ApplicationDetails = ({ app }) => {
         </div>
       </Router>
 
-      {/* <p>Status: {app.status}</p>
-      <p>Current Version: {app.version}</p>
-      <p>Desired Version: {app.desiredVersion}</p>
-      <p>
-        Last Updated:{" "}
-        {new Date(parseInt(app.updatedAt) * 1000).toLocaleDateString()}
-      </p> */}
+     
     </div>
   );
 };

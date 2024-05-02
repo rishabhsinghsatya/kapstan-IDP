@@ -45,7 +45,7 @@ const ServiceInfo = () => {
               Current version
             </h>
             <div>
-              <img src={Icon} />
+              <img src={Icon} height="15px" alignItems="start"/>
               <h
                 style={{
                   fontSize: "16px",

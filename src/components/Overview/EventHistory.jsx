@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./eventHistory.css";
+import Button from "@mui/material/Button";
+
 
 const EventHistory = () => {
   const [applications, setApplications] = useState([]);
   const [selectedAppId, setSelectedAppId] = useState("");
   const [history, setHistory] = useState([]);
-  const [showAll, setShowAll] = useState(false); // State to toggle view more or less
+  const [showAll, setShowAll] = useState(false); 
 
   useEffect(() => {
     fetch("https://retoolapi.dev/71NNjB/applications")
@@ -33,6 +35,48 @@ const EventHistory = () => {
 
   const displayedHistory = showAll ? history : history.slice(0, 4);
 
+  function formatDuration(timestamp) {
+    const date = new Date(timestamp * 1000);
+    const now = new Date();
+    const durationInHours = Math.abs(now - date) / (1000 * 60 * 60);
+
+    if (durationInHours < 24) {
+      return `${date.getHours()} hours ago`;
+    } else {
+      const durationInDays = Math.floor(durationInHours / 24);
+      return `${durationInDays} days ago`;
+    }
+  }
+
+  function getStatusStyle(status) {
+    switch (status.toLowerCase()) {
+      case "in_progress":
+        return {
+          backgroundColor: "white",
+          color: "#F39C12",
+          border: "1px solid #F39C12",
+        };
+      case "failed":
+        return {
+          backgroundColor: "white",
+          color: "#E91F04",
+          border: "1px solid #E91F04",
+        };
+      case "successful":
+        return {
+          backgroundColor: "white",
+          color: "#00B88C",
+          border: "1px solid #00B88C",
+        };
+      default:
+        return {
+          backgroundColor: "white",
+          color: "grey",
+          border: "1px solid #00B88C",
+        };
+    }
+  }
+
   return (
     <div className="event-history-container">
       <div>
@@ -52,29 +96,38 @@ const EventHistory = () => {
       </div>
       {history.length > 0 ? (
         <>
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Event</th>
-                <th>Status</th>
-                <th>Version</th>
-                <th>Timestamp</th>
-              </tr>
-            </thead>
-            <tbody>
-              {displayedHistory.map((event) => (
-                <tr key={event.id}>
-                  <td>{event.id}</td>
-                  <td>{event.event}</td>
-                  <td>{event.status}</td>
-                  <td>{event.version}</td>
-                  <td>{new Date(event.timestamp * 1000).toLocaleString()}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <button onClick={() => setShowAll(!showAll)}>
+          <h>Event History</h>
+          <div className="heading">
+            <h>Event</h>
+            <h>Version</h>
+            <h>Status</h>
+          </div>
+          <div
+            className="all_items"
+            style={{ display: "flex", flexDirection: "column" }}
+          >
+            {displayedHistory.map((event) => (
+              <div className="row_item_HR">
+                <div className="row_item">
+                  <div className="deploy_or_time">
+                    <h>{event.event}</h>
+                    <p>{formatDuration(event.timestamp)}</p>
+                  </div>
+                  <h>{event.version}</h>
+                  <button
+                    variant="outlined"
+                    size="small"
+                    style={getStatusStyle(event.status)}
+                  >
+                    {event.status}
+                  </button>
+                </div>
+                <hr className="new_hr" />
+              </div>
+            ))}
+          </div>
+
+          <button className="view_more" onClick={() => setShowAll(!showAll)}>
             {showAll ? "Show Less" : "View More"}
           </button>
         </>

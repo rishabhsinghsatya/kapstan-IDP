@@ -1,8 +1,9 @@
 .tab {
   display: flex;
-  /* justify-content: space-around; */
+  justify-content: center;
+  align-items: center;
+  gap: 12rem;
   /* margin-bottom: 20px; */
-  /* width: 90%; */
 }
 
 .tab button {
@@ -21,9 +22,19 @@
 .tab-content {
   /* padding: 20px; */
   border: 1px solid #ccc;
+  border-radius: 8px;
+  /* width: Fill (570px) px;
+  height: Fixed (396px) px; */
+  padding: 24px 0px 0px 0px;
+  gap: 12px;
+  border-radius: 8px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  border: 1px solid #ccc;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  /* height: 250px; */
-  /* width: 80%; */
+
+  height: 290px;
+  width: 49%;
 }
