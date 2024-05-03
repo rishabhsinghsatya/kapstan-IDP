@@ -63,7 +63,7 @@ const TopBar = ({ onApplicationSelect }) => {
             </option>
           ))}
         </select>
-        <IoIosArrowDown />
+        {/* <IoIosArrowDown /> */}
       </div>
       <div className="user_login">
         <p data-letters={selectedUser.initials}></p>

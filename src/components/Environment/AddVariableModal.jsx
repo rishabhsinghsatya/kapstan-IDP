@@ -21,41 +21,32 @@ const AddVariableModal = ({ onClose, isVisible }) => {
         <button className="close-button" onClick={onClose}>
           X
         </button>
-        <div className="form_and_button">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit();
-            }}
-          >
-            <div className="form-group">
-              Name
-              <input
-                type="text"
-                value={variableName}
-                onChange={(e) => setVariableName(e.target.value)}
-                required
-              />
-              Value
-              <input
-                type="text"
-                value={variableValue}
-                onChange={(e) => setVariableValue(e.target.value)}
-                required
-              />
-              <img src={DeleteIcon} height="26px" />
-            </div>
-          </form>
-          <div
-            className="bottom_buttons"
-            style={{ display: "flex", gap: "1rem", justifyContent: "end" }}
-          >
-            <button type="submit" onClick={onClose} className="close_button">
-              Close
-            </button>
-            <button type="submit">Add</button>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}>
+          <div className="form-group">
+            Name
+            <input
+              type="text"
+              value={variableName}
+              onChange={(e) => setVariableName(e.target.value)}
+              required
+            />
+            Value
+            <input
+              type="text"
+              value={variableValue}
+              onChange={(e) => setVariableValue(e.target.value)}
+              required
+            />
+            <img src={DeleteIcon} height="26px" />
           </div>
-        </div>
+          <div className="bottom_buttons" style={{ display: "flex", gap: "1rem", justifyContent: "end",paddingRight:"40px" }}>
+            <button type="button" onClick={onClose} className="bottom_close_button">Close</button>
+            <button type="submit" className="bottom_add_button">Add</button>
+          </div>
+        </form>
       </div>
     </div>
   );

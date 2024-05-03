@@ -62,7 +62,7 @@ input[type="text"] {
   width: 200px; /* Set a width or make it flexible according to your design */
 }
 
-button[type="submit"] {
+.bottom_add_button {
   background-color: #6e27d5;
   border: none;
   width: 96px;
@@ -70,6 +70,24 @@ button[type="submit"] {
   align-items: center;
   border-radius: 4px;
   color: white;
+  padding: 8px, 24px, 8px, 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 700;
+  margin: 2px;
+  cursor: pointer;
+}
+.bottom_close_button{
+    background-color: #ffffff;
+  border: 1px solid black;
+  width: 96px;
+  height: 36px;
+  align-items: center;
+  border-radius: 4px;
+  color: black;
   padding: 8px, 24px, 8px, 24px;
   text-align: center;
   text-decoration: none;
