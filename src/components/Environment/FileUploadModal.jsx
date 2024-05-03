@@ -1,6 +1,6 @@
 import React from "react";
 import "./fileUploadModal.css";
-import Download from "../../assets/images/download.png";
+import Download from "../../assets/images/Up.png";
 
 const FileUploadModal = ({ onClose, isVisible }) => {
   if (!isVisible) return null;

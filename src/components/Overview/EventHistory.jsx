@@ -2,31 +2,37 @@ import React, { useState, useEffect } from "react";
 import "./eventHistory.css";
 import Button from "@mui/material/Button";
 
-
 const EventHistory = () => {
   const [applications, setApplications] = useState([]);
-  const [selectedAppId, setSelectedAppId] = useState("");
+  const [selectedAppId, setSelectedAppId] = useState(""); // Initialize without a default ID
   const [history, setHistory] = useState([]);
-  const [showAll, setShowAll] = useState(false); 
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     fetch("https://retoolapi.dev/71NNjB/applications")
       .then((res) => res.json())
-      .then(setApplications)
+      .then((apps) => {
+        setApplications(apps);
+        if (apps && apps.length > 0) {
+          setSelectedAppId(apps[0].id.toString()); // Set the first application as default
+        }
+      })
       .catch((error) => console.error("Error loading applications:", error));
   }, []);
 
   useEffect(() => {
     if (selectedAppId) {
-      fetch("https://retoolapi.dev/TYjDIe/eventhistory")
+      fetch(
+        `https://retoolapi.dev/TYjDIe/eventhistory?applicationId=${selectedAppId}`
+      )
         .then((res) => res.json())
-        .then((data) =>
+        .then((data) => {
           setHistory(
             data.filter(
               (event) => event.applicationId.toString() === selectedAppId
             )
-          )
-        )
+          );
+        })
         .catch((error) => console.error("Error loading event history:", error));
     } else {
       setHistory([]);
@@ -72,31 +78,43 @@ const EventHistory = () => {
         return {
           backgroundColor: "white",
           color: "grey",
-          border: "1px solid #00B88C",
+          border: "1px solid grey",
         };
     }
   }
 
   return (
     <div className="event-history-container">
-      <div>
+      {/* <div>
         <label htmlFor="application-select">Select Application: </label>
         <select
           id="application-select"
           value={selectedAppId}
           onChange={(e) => setSelectedAppId(e.target.value)}
         >
-          <option value="">Select an Application</option>
           {applications.map((app) => (
             <option key={app.id} value={app.id}>
               {app.name}
             </option>
           ))}
         </select>
-      </div>
+      </div> */}
       {history.length > 0 ? (
         <>
-          <h>Event History</h>
+          <h
+            style={{
+              fontFamily: "Inter",
+              fontSize: "16px",
+              fontWeight: "700",
+              lineHeight: "24px",
+              letterSpacing: "-0.01em",
+              textAlign: "left",
+              padding:"12px 12px",
+              color: "#595959",
+            }}
+          >
+            Event History
+          </h>
           <div className="heading">
             <h>Event</h>
             <h>Version</h>
@@ -126,7 +144,6 @@ const EventHistory = () => {
               </div>
             ))}
           </div>
-
           <button className="view_more" onClick={() => setShowAll(!showAll)}>
             {showAll ? "Show Less" : "View More"}
           </button>

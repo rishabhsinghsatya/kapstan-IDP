@@ -7,7 +7,6 @@ import { ApplicationProvider } from "./components/context/ApplicationContext";
 
 function App() {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
-  const [selectedApplication, setSelectedApplication] = useState(null);
 
   return (
     <ApplicationProvider>
