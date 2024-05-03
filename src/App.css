@@ -4,3 +4,9 @@
   min-height: 100vh;
   background-color: #F8F8F8;
 }
+body{
+  font-style: "Inter";
+}
+*{
+  font-family: "Inter";
+}
