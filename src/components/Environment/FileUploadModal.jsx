@@ -12,8 +12,8 @@ const FileUploadModal = ({ onClose, isVisible }) => {
         </button>
         <h2>Upload Environment Variables</h2>
 
-        <input type="file" />
-        <button onClick={() => console.log("File uploaded")}>Upload</button>
+        <input type="file" id="uploadBtn"/>
+        {/* <button onClick={() => console.log("File uploaded")}>Upload</button> */}
       </div>
     </div>
   );

@@ -16,9 +16,18 @@
     align-items: center;justify-content: center;
     font-family: "Inter";
 }
+.applications label{
+font-family: "Inter";
+font-size: 10px;
+font-weight: 500;
+line-height: 16px;
+text-align: left;
+color: #595959;
+
+}
 
 .top-bar select {
-  padding: 8px 12px;
+  padding: 2px 12px;
   border: none;
   /* border: 0px; */
   outline: 0px;
@@ -37,11 +46,11 @@
   border-radius: 5px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
 }
 
 .user_login select {
-  padding: 8px 12px;
+  padding: 2px ;
   border: none;
   /* border: 0px; */
   outline: 0px;

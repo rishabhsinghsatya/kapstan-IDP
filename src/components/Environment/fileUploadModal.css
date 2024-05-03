@@ -14,7 +14,7 @@
   .modal-content {
     background: white;
     padding: 20px;
-    /* border-radius: 8px; */
+    border-radius: none;
     /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); */
     box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);
     height: 100vh;
@@ -28,13 +28,7 @@
     font-size: 16px;
     cursor: pointer;
   }
-  label {
-    border: 1px solid #e5e5e5;
-    border-radius: 10px;
-    padding: 5px 10px;
-    font-family: 'Helvetica', sans-serif;
-    transition: .5s;
-  }
+  
   
   label:hover {
     background-color: #eee;

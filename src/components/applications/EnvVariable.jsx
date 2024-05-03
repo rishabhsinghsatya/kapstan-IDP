@@ -5,6 +5,7 @@ import "./envVariable.css";
 import FileUploadModal from "../Environment/FileUploadModal";
 import AddVariableModal from "../Environment/AddVariableModal";
 import { useEnvironment } from "../context/EnvironmentContext";
+import DeleteIcon from "../../assets/images/delete.png";
 
 const EnvVariable = () => {
   const { variables, deleteVariable } = useEnvironment();
@@ -29,12 +30,16 @@ const EnvVariable = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="env_container">
         <div className="header">
           <p>Environment Variable</p>
           <div className="both_icon">
             <img src={AddIcon} alt="Add Variable" onClick={handleAddVariable} />
-            <img src={DownloadIcon} alt="Download Variables" onClick={handleDownloadVariables} />
+            <img
+              src={DownloadIcon}
+              alt="Download Variables"
+              onClick={handleDownloadVariables}
+            />
           </div>
         </div>
         {variables.length === 0 ? (
@@ -43,10 +48,16 @@ const EnvVariable = () => {
           <div>
             {variables.map((variable, index) => (
               <div key={index} className="variable-entry">
-                {variable.name}: {variable.value}
-                <button onClick={() => deleteVariable(index)} className="delete-btn">
+                <p> {variable.name}</p>
+                <h> {variable.value}</h>
+                {/* <button onClick={() => deleteVariable(index)} className="delete-btn">
                   Delete
-                </button>
+                </button> */}
+                <img
+                  src={DeleteIcon}
+                  onClick={() => deleteVariable(index)}
+                  height="26px"
+                />
               </div>
             ))}
           </div>

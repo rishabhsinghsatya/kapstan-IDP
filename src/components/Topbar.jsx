@@ -1,12 +1,12 @@
-// src/components/TopBar.js
 import React, { useState, useEffect } from "react";
 import "./topbar.css";
 import { IoIosArrowDown } from "react-icons/io";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button"; // Assuming you may want to use it later
 
 const TopBar = ({ onApplicationSelect }) => {
   const [applications, setApplications] = useState([]);
-  const [selectedApplication, setSelectedApplication] = useState("tic-tac-toe");
+  const [selectedApplication, setSelectedApplication] = useState("");
+  
 
   useEffect(() => {
     const fetchApplications = async () => {
@@ -16,13 +16,9 @@ const TopBar = ({ onApplicationSelect }) => {
         );
         const data = await response.json();
         setApplications(data);
-        // Automatically select the Tic-Tac-Toe application
-        const ticTacToeApp = data.find(
-          (app) => app.name.toLowerCase() === "tic-tac-toe"
-        );
-        if (ticTacToeApp) {
-          setSelectedApplication(ticTacToeApp.name);
-          onApplicationSelect(ticTacToeApp);
+        if (data.length > 0) {
+          setSelectedApplication(data[0].name); 
+          onApplicationSelect(data[0]); 
         }
       } catch (error) {
         console.error("Failed to fetch applications:", error);
@@ -33,10 +29,10 @@ const TopBar = ({ onApplicationSelect }) => {
   }, [onApplicationSelect]);
 
   const handleSelectApplication = (event) => {
-    setSelectedApplication(event.target.value);
-    onApplicationSelect(
-      applications.find((app) => app.name === event.target.value)
-    );
+    const appName = event.target.value;
+    setSelectedApplication(appName);
+    const app = applications.find((app) => app.name === appName);
+    onApplicationSelect(app);
   };
 
   const users = [
@@ -46,7 +42,6 @@ const TopBar = ({ onApplicationSelect }) => {
 
   const [selectedUser, setSelectedUser] = useState(users[0]);
 
-  // Handle changing the selected user
   const handleChange = (event) => {
     const userId = parseInt(event.target.value, 10);
     const user = users.find((u) => u.id === userId);
@@ -56,13 +51,12 @@ const TopBar = ({ onApplicationSelect }) => {
   return (
     <div className="top-bar">
       <div className="applications">
-        <label htmlFor="application-select">Applications </label>
+        <label htmlFor="application-select">Applications</label>
         <select
           id="application-select"
           value={selectedApplication}
           onChange={handleSelectApplication}
         >
-          <option value="">Tic-Tac-Toe</option>
           {applications.map((app) => (
             <option key={app.id} value={app.name}>
               {app.name}
@@ -82,7 +76,6 @@ const TopBar = ({ onApplicationSelect }) => {
         </select>
         <IoIosArrowDown />
       </div>
-        {/* <Button variant="outlined">Outlined</Button> */}
     </div>
   );
 };
